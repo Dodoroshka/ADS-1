@@ -19,20 +19,16 @@ bool checkPrime(uint64_t value) {
 }
 
 uint64_t nPrime(uint64_t n) {
-	if (n <= 0) {
-		return -1;
-	}
-	uint64_t count = 0;
-	uint64_t num = 1;
-	while (count != n) {
-		num++;
-		if (checkPrime(num)) {
-			count++;
-		}
-	}
-	return num;
+    uint64_t count = 0;
+    uint64_t num = 1;
+    while (count != n) {
+        ++num;
+        if (checkPrime(num)) {
+            ++count;
+        }
+    }
+    return num;
 }
-
 uint64_t nextPrime(uint64_t value) {
   uint64_t newValue = value + 1;
   while (!checkPrime(newValue)) {
