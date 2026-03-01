@@ -4,14 +4,14 @@
 
 
 bool checkPrime(uint64_t value) {
-  if (value == 1){
+  if (value == 1) {
     return false;
   }
-  if (value == 2){
+  if (value == 2) {
     return true;
   }
   for (uint64_t i = 2; i < value; i++) {
-    if (value % i == 0){
+    if (value % i == 0) {
       return false;
     }
   }
@@ -19,23 +19,23 @@ bool checkPrime(uint64_t value) {
 }
 
 uint64_t nPrime(uint64_t n) {
-  if (n <= 0){
-    return -1;
-  }
-	uint64_t count = 0;
-  uint64_t num = 1;
-  while (count != n) {
-    num++;
-    if (checkPrime(num)) {
-      count++;
-    }
+	if (n <= 0) {
+		return -1;
 	}
-  return num;
+	uint64_t count = 0;
+	uint64_t num = 1;
+	while (count != n) {
+		num++;
+		if (checkPrime(num)) {
+			count++;
+		}
+	}
+	return num;
 }
 
 uint64_t nextPrime(uint64_t value) {
   uint64_t newValue = value + 1;
-  while (!checkPrime(newValue)){
+  while (!checkPrime(newValue)) {
     newValue++;
   }
   return newValue;
@@ -44,7 +44,7 @@ uint64_t nextPrime(uint64_t value) {
 uint64_t sumPrime(uint64_t hbound) {
   uint64_t sum = 0;
   for (uint64_t i = 1; i < hbound; i++) {
-    if (checkPrime(i)){
+    if (checkPrime(i)) {
       sum += i;
     }
   }
@@ -52,7 +52,7 @@ uint64_t sumPrime(uint64_t hbound) {
 }
 
 uint64_t twinPrimes(uint64_t lbound, uint64_t hbound) {
-  if (hbound - lbound <= 2){
+  if (hbound - lbound <= 2) {
     return -1;
   }
   uint64_t count = 0;
